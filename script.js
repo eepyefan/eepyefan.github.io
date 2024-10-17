@@ -13,8 +13,8 @@ const centerY = canvas.height / 2;
 const triangleSize = 200;
 const triangleColor = 'red';
 
-// Rotation speed (1000 RPM)
-const rotationSpeed = 360 * 1000 / 60; // 360 degrees per second
+// Rotation speed (10 RPM)
+const rotationSpeed = 36; // 360 degrees divided by 10
 
 let angle = 0;
 
