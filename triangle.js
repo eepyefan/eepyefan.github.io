@@ -1,7 +1,7 @@
 const canvas = document.getElementById('triangleCanvas');
 const ctx = canvas.getContext('2d');
 
-// Set canvas size
+// Set canvas size to fill the viewport
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -11,17 +11,24 @@ function drawTriangle() {
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Calculate triangle dimensions
+    const sideLength = Math.min(canvas.width, canvas.height) * 0.7;
+    const height = sideLength * Math.sqrt(3) / 2;
+
+    // Calculate center point
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
     // Draw triangle
     ctx.beginPath();
-    ctx.moveTo(canvas.width / 2, canvas.height);
-    ctx.arcTo(canvas.width, canvas.height, canvas.width * 2, canvas.height, canvas.width);
-    ctx.lineTo(canvas.width * 2, 0);
-    ctx.arcTo(canvas.width, 0, 0, 0, canvas.width);
+    ctx.moveTo(centerX, centerY);
+    ctx.lineTo(centerX - sideLength, centerY + height);
+    ctx.lineTo(centerX + sideLength, centerY + height);
     ctx.closePath();
     ctx.stroke();
 
     // Update rotation angle
-    angle += 0.01; // 1 degree per frame
+    angle += 0.005; // 0.5 degrees per frame
 
     // Apply rotation transform
     canvas.style.transform = `rotate(${angle}deg)`;
