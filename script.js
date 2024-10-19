@@ -6,4 +6,4 @@ function embedImage(imagePath) {
 }
 
 // Usage
-embedImage('./path/to/your/image.jpg');
+embedImage('./main/image.jpg');
